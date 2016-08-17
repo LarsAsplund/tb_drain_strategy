@@ -25,9 +25,9 @@ begin
     while test_suite loop
       entry_gate(runner);
       if run("Test with some data") then
-        test_vector.load_csv("some_data.csv");
+        test_vector.load_csv("src/some_data.csv");
       elsif run("Test with some other data") then
-        test_vector.load_csv("some_other_data.csv");
+        test_vector.load_csv("src/some_other_data.csv");
       end if;
 
       for i in 0 to test_vector.length-1 loop
@@ -46,9 +46,9 @@ begin
     wait_until(runner, test_case_setup);
 
     if active_test_case = "Test with some data" then
-      result_vector.load_csv("some_data.csv");
+      result_vector.load_csv("src/some_data.csv");
     elsif active_test_case = "Test with some other data" then
-      result_vector.load_csv("some_other_data.csv");
+      result_vector.load_csv("src/some_other_data.csv");
     else
       check_failed("Unknown test case");
     end if;
