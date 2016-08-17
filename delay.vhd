@@ -17,7 +17,8 @@ begin
     variable delay_line : delay_line_t(1 to len);
   begin
     wait until rising_edge(clk);
-    delay_line := (d, delay_line(1 to len-1));
+    delay_line(2 to len) := delay_line(1 to len-1);
+    delay_line(1) := d;
     q <= delay_line(delay_line'right);
   end process main;
 end architecture behavioral;
